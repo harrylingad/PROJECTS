@@ -1,0 +1,84 @@
+package com.kilobolt.screens;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
+import com.kilobolt.testingpackage.LevelGameRenderer;
+import com.kilobolt.testingpackage.LevelGameWorld;
+import com.kilobolt.testingpackage.TestGameRenderer;
+import com.kilobolt.testingpackage.TestGameWorld;
+import com.kilobolt.zbhelpers.LevelInputHandler;
+import com.kilobolt.zbhelpers.MenuInputHandler;
+import com.kilobolt.zombiegame.ZBGame;
+
+public class LevelScreen implements Screen{
+
+
+	private ZBGame zbGame;
+	
+	private LevelGameWorld levelGameWorld;
+	private LevelGameRenderer levelGameRenderer;
+
+	private int status;
+	
+	public LevelScreen(ZBGame zbGame)
+	{
+		float screenWidth = Gdx.graphics.getWidth();//272
+	    float screenHeight = Gdx.graphics.getHeight();//408
+	    
+	    float gameWidth = 300;
+	    float gameHeight = screenHeight / (screenWidth / gameWidth);
+	    int midPointY = (int) (gameHeight / 2);
+	    
+	    this.zbGame = zbGame;
+	    status = 0;
+	    
+	    levelGameWorld = new LevelGameWorld(zbGame, this);
+	    levelGameRenderer = new LevelGameRenderer(levelGameWorld, (int)gameHeight); 
+	    
+	    Gdx.input.setInputProcessor(new LevelInputHandler(this, levelGameWorld.getLevelPlayButton()));
+	}
+	
+	
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void render(float delta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

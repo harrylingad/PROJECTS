@@ -1,0 +1,5 @@
+package com.hostei.thegreatharry.framework;
+
+public interface Screen {
+
+}

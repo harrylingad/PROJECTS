@@ -1,0 +1,12 @@
+package com.gamedevelopment.framework.implementation;
+
+import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.media.MediaPlayer.OnSeekCompleteListener;
+import android.media.MediaPlayer.OnVideoSizeChangedListener;
+
+import com.gamedevelopment.framework.Music;
+
+public class AndroidMusic implements Music, OnCompletionListener, OnSeekCompleteListener, OnPreparedListener, OnVideoSizeChangedListener{
+
+}

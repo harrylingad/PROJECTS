@@ -1,0 +1,40 @@
+package com.gamedevelopment.framework.implementation;
+
+import java.util.List;
+
+import com.gamedevelopment.framework.Input;
+
+public class AndroidInput implements Input{
+
+	public AndroidInput(Context context, View view, float scaleX, float scaleY) {
+        if(Integer.parseInt(VERSION.SDK) < 5) 
+            touchHandler = new SingleTouchHandler(view, scaleX, scaleY);
+        else
+            touchHandler = new MultiTouchHandler(view, scaleX, scaleY);        
+    }
+	
+	@Override
+	public boolean isTouchDown(int pointer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int getTouchX(int pointer) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTouchY(int pointer) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<TouchEvent> getTouchEvents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

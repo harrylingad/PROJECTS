@@ -1,0 +1,9 @@
+package com.gamedevelopment.framework.implementation;
+
+public class AndroidGame {
+
+	public AndroidGame() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

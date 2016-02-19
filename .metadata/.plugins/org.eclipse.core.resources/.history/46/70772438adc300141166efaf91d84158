@@ -1,0 +1,129 @@
+package com.kilobolt.gameobjects;
+
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+public class PuzzleImage {
+	
+	private Texture image;
+	private TextureRegion image1, image2, image3, image4;
+	private TextureRegion standbyImage;
+	private int selectedImage;
+
+	public PuzzleImage(Texture image)
+	{
+		this.image = image;
+		
+		image4 = new TextureRegion(this.image, 0, 0, 150, 150);
+		image4.flip(false, true);
+        
+		image1 = new TextureRegion(this.image, 150, 0, 150, 150);
+		image1.flip(false, true);
+        
+		image3 = new TextureRegion(this.image, 0, 150, 150, 150);
+		image3.flip(false, true);
+        
+		image2 = new TextureRegion(this.image, 150, 150, 150, 150);
+		image2.flip(false, true);
+	}
+	
+	public void click1()
+	{
+			if(standbyImage == null)
+			{
+				standbyImage = image1;
+				selectedImage = 1;
+			}
+			else
+			{
+
+				changeImage(selectedImage, image1);
+				image1 = standbyImage;
+				standbyImage = null;
+				
+			
+			}
+	}
+	
+	public void click2()
+	{
+			if(standbyImage == null)
+			{
+				standbyImage = image2;
+				selectedImage = 2;
+			}
+			else
+			{
+				changeImage(selectedImage, image2);
+				image2 = standbyImage;
+				standbyImage = null;
+			}
+	}
+	
+	public void click3()
+	{
+			if(standbyImage == null)
+			{
+				standbyImage = image3;
+				selectedImage = 3;
+			}
+			else
+			{
+				changeImage(selectedImage, image3);
+				image3 = standbyImage;
+				standbyImage = null;
+			}
+	}
+	
+	public void click4()
+	{
+			if(standbyImage == null)
+			{
+				standbyImage = image4;
+				selectedImage = 4;
+			}
+			else
+			{
+				changeImage(selectedImage, image4);
+				image4 = standbyImage;
+				standbyImage = null;
+			}
+	}
+
+	public void changeImage(int selectedImageID, TextureRegion newImage)
+	{
+		switch(selectedImageID)
+		{
+		case 1:
+			image1 = newImage;
+			break;
+		case 2:
+			image2 = newImage;
+			break;
+		case 3:
+			image3 = newImage;
+			break;
+		case 4:
+			image4 = newImage;
+			break;
+		
+		}
+	}
+	public TextureRegion getImage1() {
+		return image1;
+	}
+
+	public TextureRegion getImage2() {
+		return image2;
+	}
+
+	public TextureRegion getImage3() {
+		return image3;
+	}
+
+	public TextureRegion getImage4() {
+		return image4;
+	}
+
+	
+}

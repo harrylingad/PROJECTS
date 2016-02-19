@@ -1,0 +1,23 @@
+package ninjawarrior.framework;
+
+import java.util.ArrayList;
+
+public class Animation {
+
+	 	private ArrayList frames;
+	   private int currentFrame;
+	   private long animTime; //long takes up more memory than int but can hold more accurate numbers.
+	   private long totalDuration;
+
+	   public Animation() {
+			frames = new ArrayList();
+			totalDuration = 0;
+
+
+			synchronized (this) {
+				animTime = 0;
+				currentFrame = 0;
+			}
+		}
+	   
+}

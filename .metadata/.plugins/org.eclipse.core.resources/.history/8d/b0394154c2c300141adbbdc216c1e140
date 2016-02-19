@@ -1,0 +1,118 @@
+package com.kilobolt.zbhelpers;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
+import com.kilobolt.gameobjects.Bird;
+import com.kilobolt.gameobjects.PuzzleImage;
+import com.kilobolt.screens.GameScreen;
+
+public class InputHandler implements InputProcessor{
+
+	private Bird myBird;
+	private PuzzleImage image;
+	private GameScreen gameScreen;
+	
+	public InputHandler(GameScreen gameScreen, Bird bird, PuzzleImage image) {
+		   this.image = image;
+		   myBird = bird;
+		   this.gameScreen = gameScreen;
+		}
+	
+	@Override
+	public boolean keyDown(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char character) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		
+
+		   Gdx.app.log("screenX :", "" + screenX); 
+		   Gdx.app.log("screenY :", "" + screenY); 
+		   Gdx.app.log("pointer :", "" + pointer); 
+		   Gdx.app.log("button  :", "" + button); 
+		   
+		   int x = (450 * screenX) / 408;
+		   int y = (screenY * 136) / 270;
+		   
+//		   if( ((x  > 55) && (x < 66)) && ((y  > 168) && (y < 179)) )
+//		   {
+//			   Gdx.app.log("SUCCESS: ", "TRUE " + x + " "+  y); 
+//			   gameScreen.setStatus(1);
+//		   }
+		   
+		   
+		   if( ((x > 0) && (x < 68)) && ((y  > 0) && (y < 68)) )
+			   {
+			   this.image.click1();
+//				   Gdx.app.log("SUCCESS: ", "TRUE " + x + " "+  y); 
+//				   gameScreen.setStatus(1);
+			   }
+		   
+		   if( ((x > 68) && (x < 138)) && ((y  > 0) && (y < 68)) )
+		   {
+		   	image.click2();
+//			   Gdx.app.log("SUCCESS: ", "TRUE " + x + " "+  y); 
+//			   gameScreen.setStatus(1);
+		   }
+		   
+		   if( ((x > 0) && (x < 68)) && ((y  > 68) && (y < 138)) )
+		   {
+		   	image.click3();
+//			   Gdx.app.log("SUCCESS: ", "TRUE " + x + " "+  y); 
+//			   gameScreen.setStatus(1);
+		   }
+		   
+		   if( ((x > 68) && (x < 138)) && ((y  > 68) && (y < 138)) )
+		   {
+		   	image.click4();
+//			   Gdx.app.log("SUCCESS: ", "TRUE " + x + " "+  y); 
+//			   gameScreen.setStatus(1);
+		   }
+			   
+			   
+		   
+		   
+		
+		   myBird.onClick();
+	        return true; // Return true to say we handled the touch.
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int amount) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

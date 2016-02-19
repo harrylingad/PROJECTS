@@ -1,0 +1,118 @@
+package com.gamedevelopment.framework.implementation;
+
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.media.MediaPlayer.OnSeekCompleteListener;
+import android.media.MediaPlayer.OnVideoSizeChangedListener;
+
+import com.gamedevelopment.framework.Music;
+
+public class AndroidMusic implements Music, OnCompletionListener, OnSeekCompleteListener, OnPreparedListener, OnVideoSizeChangedListener{
+
+	MediaPlayer mediaPlayer;
+    boolean isPrepared = false;
+    
+    public AndroidMusic(AssetFileDescriptor assetDescriptor) {
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(assetDescriptor.getFileDescriptor(),
+                    assetDescriptor.getStartOffset(),
+                    assetDescriptor.getLength());
+            mediaPlayer.prepare();
+            isPrepared = true;
+            mediaPlayer.setOnCompletionListener(this);
+            mediaPlayer.setOnSeekCompleteListener(this);
+            mediaPlayer.setOnPreparedListener(this);
+            mediaPlayer.setOnVideoSizeChangedListener(this);
+            
+        } catch (Exception e) {
+            throw new RuntimeException("Couldn't load music");
+        }
+    }
+    
+	@Override
+	public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPrepared(MediaPlayer mp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSeekComplete(MediaPlayer mp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onCompletion(MediaPlayer mp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLooping(boolean looping) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setVolume(float volume) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isPlaying() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isStopped() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isLooping() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void seekBegin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+package com.gamedevelopment.framework.implementation;
+
+import android.content.res.AssetManager;
+import android.media.SoundPool;
+
+import com.gamedevelopment.framework.Audio;
+import com.gamedevelopment.framework.Music;
+import com.gamedevelopment.framework.Sound;
+
+public class AndroidAudio implements Audio{
+
+	AssetManager assets;
+    SoundPool soundPool;
+    
+	@Override
+	public Music createMusic(String file) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sound createSound(String file) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

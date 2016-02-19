@@ -1,0 +1,73 @@
+package com.kilobolt.testingpackage;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.kilobolt.zbhelpers.AssetLoader;
+
+public class TestGameRenderer {
+
+
+    private int gameHeight;
+    
+	 private TestGameWorld myWorld;
+	 private OrthographicCamera cam;
+	 private ShapeRenderer shapeRenderer;
+	 
+	 private SpriteBatch batcher;
+	 
+	 private TextureRegion play;
+	 
+	public TestGameRenderer(TestGameWorld world, int gameHeight) {
+		cam = new OrthographicCamera();
+		cam.setToOrtho(true, 300, gameHeight);
+		myWorld = world;
+
+		batcher = new SpriteBatch();
+		batcher.setProjectionMatrix(cam.combined);
+
+		play = AssetLoader.playTexture;
+
+		shapeRenderer = new ShapeRenderer();
+		shapeRenderer.setProjectionMatrix(cam.combined);
+	}
+	    
+	 public void render() {
+
+//	        Gdx.app.log("TestGameRenderer", "render");
+	   
+	        Gdx.gl.glClearColor(1, 1, 1, 1);
+	        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+	        
+	        shapeRenderer.begin(ShapeType.Filled);
+	        shapeRenderer.setColor(87 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
+	        shapeRenderer.rect(myWorld.getRect().x, myWorld.getRect().y,
+	                myWorld.getRect().width, myWorld.getRect().height);
+
+	        shapeRenderer.end();
+	        
+	        
+	        
+	        batcher.begin();
+	        batcher.disableBlending();
+	        batcher.draw(play, 100, 200,
+	                100, 97);
+	        
+	        batcher.end();
+	        
+	        shapeRenderer.begin(ShapeType.Line);
+	        shapeRenderer.setColor(255 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
+//	        shapeRenderer.rect(myWorld.getRect().x, myWorld.getRect().y,
+//	                myWorld.getRect().width, myWorld.getRect().height);
+	        
+	        shapeRenderer.rect(100, 200,
+	                100, 97);
+	        
+	        shapeRenderer.end();
+	    
+	    }
+}

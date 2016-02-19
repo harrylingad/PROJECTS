@@ -1,0 +1,9 @@
+package com.gamedevelopment.ninjawarrior;
+
+import android.app.Activity;
+
+public class MainActivity extends Activity{
+	
+	
+
+}
