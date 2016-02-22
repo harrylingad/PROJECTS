@@ -1,0 +1,27 @@
+package com.peacemakergamedevelopment.framework.implementation;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.peacemakergamedevelopment.framework.Audio;
+import com.peacemakergamedevelopment.framework.FileIO;
+import com.peacemakergamedevelopment.framework.Game;
+import com.peacemakergamedevelopment.framework.Graphics;
+import com.peacemakergamedevelopment.framework.Input;
+import com.peacemakergamedevelopment.framework.Screen;
+
+public abstract class AndroidGame extends Activity implements Game {
+
+	public AndroidGame() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

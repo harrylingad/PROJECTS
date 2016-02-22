@@ -1,0 +1,29 @@
+package com.peacemakergamedevelopment.ninjawarrior;
+
+import java.util.ArrayList;
+
+import com.peacemakergamedevelopment.framework.Image;
+
+public class Animation {
+
+	private ArrayList frames;
+	private int currentFrame;
+	private long animTime;
+	private long totalDuration;
+	
+    public Animation() {
+        frames = new ArrayList();
+        totalDuration = 0;
+
+        synchronized (this) {
+            animTime = 0;
+            currentFrame = 0;
+        }
+    }
+    
+    public synchronized void addFrame(Image image, long duration) {
+        totalDuration += duration;
+        frames.add(new AnimFrame(image, totalDuration));
+    }
+
+}

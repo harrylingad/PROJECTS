@@ -1,0 +1,7 @@
+package com.peacemakergamedevelopment.ninjawarrior;
+
+import AndroidGame;
+
+public class SampleGame extends AndroidGame {
+
+}

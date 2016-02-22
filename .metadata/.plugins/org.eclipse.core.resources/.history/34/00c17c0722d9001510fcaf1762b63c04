@@ -1,0 +1,55 @@
+package com.peacemakergamedevelopment.ninjawarrior;
+
+import com.peacemakergamedevelopment.framework.Audio;
+import com.peacemakergamedevelopment.framework.FileIO;
+import com.peacemakergamedevelopment.framework.Graphics;
+import com.peacemakergamedevelopment.framework.Input;
+import com.peacemakergamedevelopment.framework.Screen;
+import com.peacemakergamedevelopment.framework.implementation.AndroidGame;
+
+
+public class SampleGame extends AndroidGame {
+
+	@Override
+	public Audio getAudio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Input getInput() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FileIO getFileIO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Graphics getGraphics() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setScreen(Screen screen) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Screen getCurrentScreen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Screen getInitScreen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.peacemakergamedevelopment.ninjawarrior;
+
+import com.peacemakergamedevelopment.framework.Image;
+import com.peacemakergamedevelopment.framework.Sound;
+
+public class Assets {
+	public static Image menu;
+    public static Sound click;
+}

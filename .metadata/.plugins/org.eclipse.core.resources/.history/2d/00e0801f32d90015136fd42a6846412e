@@ -1,0 +1,127 @@
+package com.peacemakergamedevelopment.ninjawarrior;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import android.util.Log;
+
+import com.gamedevelopment.ninjawarrior.R;
+import com.peacemakergamedevelopment.framework.Audio;
+import com.peacemakergamedevelopment.framework.FileIO;
+import com.peacemakergamedevelopment.framework.Graphics;
+import com.peacemakergamedevelopment.framework.Input;
+import com.peacemakergamedevelopment.framework.Screen;
+import com.peacemakergamedevelopment.framework.implementation.AndroidGame;
+
+
+public class SampleGame extends AndroidGame {
+
+	public static String map;
+    boolean firstTimeCreate = true;
+    
+	@Override
+	public Audio getAudio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Input getInput() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FileIO getFileIO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Graphics getGraphics() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setScreen(Screen screen) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Screen getCurrentScreen() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Screen getInitScreen() {
+//		return new LoadingScreen(this); 
+		 if (firstTimeCreate) {
+	            Assets.load(this);
+	            firstTimeCreate = false;
+	        }
+
+	        InputStream is = getResources().openRawResource(R.raw.map1);
+	        map = convertStreamToString(is);
+
+	        return new SplashLoadingScreen(this);
+
+	}
+	
+	private static String convertStreamToString(InputStream is) {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append((line + "\n"));
+            }
+        } catch (IOException e) {
+            Log.w("LOG", e.getMessage());
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                Log.w("LOG", e.getMessage());
+            }
+        }
+        return sb.toString();
+    }
+
+	@Override
+	public void onBackPressed() {
+		getCurrentScreen().backButton();
+	}
+
+	
+//	@Override
+//	protected void onResume() {
+//		// TODO Auto-generated method stub
+//		super.onResume();
+//		Assets.theme.play();
+//	}
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		Assets.theme.play();
+	}
+
+//	@Override
+//	protected void onPause() {
+//		// TODO Auto-generated method stub
+//		super.onPause();
+//		Assets.theme.pause();
+//
+//	}
+	
+	
+
+}

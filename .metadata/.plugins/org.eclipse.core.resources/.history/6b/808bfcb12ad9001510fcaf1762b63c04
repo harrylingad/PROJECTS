@@ -1,0 +1,7 @@
+package com.peacemakergamedevelopment.ninjawarrior;
+
+import Screen;
+
+public class SplashLoadingScreen extends Screen {
+
+}
